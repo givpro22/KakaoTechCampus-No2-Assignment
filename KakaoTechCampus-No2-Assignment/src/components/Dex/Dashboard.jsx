@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 import React from 'react';
-import { usePokemonContext } from '../../context/PokemonContext';
+import { useSelector, useDispatch } from 'react-redux';
+import { removePokemon } from '../../../redux/slices/pokemonSlice';
 
 const Dashboard = () => {
-  const { selected, removePokemon } = usePokemonContext();
+  const selected = useSelector((state) => state.pokemon.selected);
+  const dispatch = useDispatch();
 
   return (
     <DashboardContainer>
@@ -13,7 +15,7 @@ const Dashboard = () => {
           <SelectedCard key={pokemon.id}>
             <img src={pokemon.image} alt={pokemon.name} width="120" />
             <p>{pokemon.name}</p>
-            <RemoveButton onClick={() => removePokemon(pokemon.id)}>삭제</RemoveButton>
+            <RemoveButton onClick={() => dispatch(removePokemon(pokemon.id))}>삭제</RemoveButton>
           </SelectedCard>
         ))}
       </SelectedList>

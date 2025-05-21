@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { usePokemonContext } from '../../context/PokemonContext';
+import { useDispatch } from 'react-redux';
+import { addPokemon } from '../../../redux/slices/pokemonSlice';
 
 const PokemonCard = ({ pokemon }) => {
   const navigate = useNavigate();
-  const { addPokemon } = usePokemonContext();
+  const dispatch = useDispatch();
   const handleCardClick = () => {
     navigate(`/dex/${pokemon.id}`);
   };
@@ -14,7 +15,14 @@ const PokemonCard = ({ pokemon }) => {
       <PokemonImage src={pokemon.image} alt={pokemon.name} />
       <PokemonName>{pokemon.name}</PokemonName>
       <PokemonType>{pokemon.type} 타입</PokemonType>
-      <AddButton onClick={(e) => { e.stopPropagation(); addPokemon(pokemon); }}>추가</AddButton>
+      <AddButton
+        onClick={(e) => {
+          e.stopPropagation();
+          dispatch(addPokemon(pokemon));
+        }}
+      >
+        추가
+      </AddButton>
     </CardContainer>
   );
 };
