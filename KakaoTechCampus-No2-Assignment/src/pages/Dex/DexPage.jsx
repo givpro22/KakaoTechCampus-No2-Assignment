@@ -5,7 +5,6 @@ import PokemonList from '../../components/Dex/PokemonList';
 import MOCK_DATA from '../../data/MOCK_DATA.js';
 
 const DexPage = () => {
-  const navigate = useNavigate();
   const [selected, setSelected] = useState([]);
 
   const handleAdd = (pokemon) => {
