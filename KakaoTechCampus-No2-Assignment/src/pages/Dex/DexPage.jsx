@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Dashboard from '../../components/Dex/Dashboard';
 import PokemonList from '../../components/Dex/PokemonList';
 import MOCK_DATA from '../../data/MOCK_DATA.js';
@@ -24,14 +23,19 @@ const DexPage = () => {
   };
 
   return (
-    <div>
+    <PageWrapper>
       <Dashboard selected={selected} onRemove={handleRemove} />
-      <PokemonList
-        pokemonList={MOCK_DATA}
-        onAdd={handleAdd}
-      />
-    </div>
+      <PokemonList pokemonList={MOCK_DATA} onAdd={handleAdd} />
+    </PageWrapper>
   );
 };
 
 export default DexPage;
+
+import styled from 'styled-components';
+
+const PageWrapper = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+`;
