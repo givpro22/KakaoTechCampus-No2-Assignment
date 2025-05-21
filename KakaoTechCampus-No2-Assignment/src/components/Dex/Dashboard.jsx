@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import React from 'react';
+import { usePokemonContext } from '../../context/PokemonContext';
 
-const Dashboard = ({ selected, onRemove }) => {
+const Dashboard = () => {
+  const { selected, removePokemon } = usePokemonContext();
+
   return (
     <DashboardContainer>
       <Title>선택된 포켓몬</Title>
@@ -10,7 +13,7 @@ const Dashboard = ({ selected, onRemove }) => {
           <SelectedCard key={pokemon.id}>
             <img src={pokemon.image} alt={pokemon.name} width="120" />
             <p>{pokemon.name}</p>
-            <RemoveButton onClick={() => onRemove(pokemon.id)}>삭제</RemoveButton>
+            <RemoveButton onClick={() => removePokemon(pokemon.id)}>삭제</RemoveButton>
           </SelectedCard>
         ))}
       </SelectedList>

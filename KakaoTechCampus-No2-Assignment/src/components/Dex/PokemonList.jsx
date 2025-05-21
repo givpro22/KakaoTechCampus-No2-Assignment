@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import React from 'react';
 import PokemonCard from './PokemonCard';
+import MOCK_DATA from '../../data/MOCK_DATA';
 
-const PokemonList = ({ pokemonList, onAdd }) => {
+const PokemonList = () => {
   return (
     <ListWrapper>
-      {pokemonList.map((pokemon) => (
-        <PokemonCard key={pokemon.id} pokemon={pokemon} onAdd={onAdd} />
+      {MOCK_DATA.map((pokemon) => (
+        <PokemonCard key={pokemon.id} pokemon={pokemon} />
       ))}
     </ListWrapper>
   );
