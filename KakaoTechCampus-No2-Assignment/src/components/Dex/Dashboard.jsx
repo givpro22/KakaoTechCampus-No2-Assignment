@@ -13,8 +13,8 @@ const Dashboard = () => {
       <SelectedList>
         {selected.map((pokemon) => (
           <SelectedCard key={pokemon.id}>
-            <img src={pokemon.image} alt={pokemon.name} width="120" />
-            <p>{pokemon.name}</p>
+            <img src={pokemon.img_url} alt={pokemon.korean_name} width="120" />
+            <p>{pokemon.korean_name}</p>
             <RemoveButton onClick={() => dispatch(removePokemon(pokemon.id))}>삭제</RemoveButton>
           </SelectedCard>
         ))}

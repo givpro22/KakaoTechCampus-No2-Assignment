@@ -12,9 +12,9 @@ const PokemonCard = ({ pokemon }) => {
   };
   return (
     <CardContainer onClick={handleCardClick}>
-      <PokemonImage src={pokemon.image} alt={pokemon.name} />
-      <PokemonName>{pokemon.name}</PokemonName>
-      <PokemonType>{pokemon.type} 타입</PokemonType>
+      <PokemonImage src={pokemon.img_url} alt={pokemon.korean_name} />
+      <PokemonName>{pokemon.korean_name}</PokemonName>
+      <PokemonType>{pokemon.types.join(', ')} 타입</PokemonType>
       <AddButton
         onClick={(e) => {
           e.stopPropagation();

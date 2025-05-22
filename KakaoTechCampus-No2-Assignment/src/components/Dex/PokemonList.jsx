@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
 import PokemonCard from './PokemonCard';
-import MOCK_DATA from '../../data/MOCK_DATA';
+import MOCK_DATA from '../../data/mock';
 
 const PokemonList = () => {
   return (

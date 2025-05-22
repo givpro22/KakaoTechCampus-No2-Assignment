@@ -3,7 +3,7 @@ import { addPokemon, removePokemon } from '../../../redux/slices/pokemonSlice';
 import styled from 'styled-components';
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import MOCK_DATA from '../../data/MOCK_DATA.js';
+import MOCK_DATA from '../../data/mock';
 
 const DetailPage = () => {
   const { id } = useParams();
@@ -19,9 +19,9 @@ const DetailPage = () => {
 
   return (
     <DetailContainer>
-      <Title>{pokemon.name} 상세 정보</Title>
-      <PokemonImage src={pokemon.image} alt={pokemon.name} />
-      <TypeText>타입: {pokemon.type}</TypeText>
+      <Title>{pokemon.korean_name} 상세 정보</Title>
+      <PokemonImage src={pokemon.img_url} alt={pokemon.korean_name} />
+      <TypeText>타입: {pokemon.types.join(', ')}</TypeText>
       <Description>{pokemon.description}</Description>
       <ActionButton
         onClick={() => {
